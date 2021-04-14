@@ -44,16 +44,5 @@ export const data = {
       numReviews: 10,
       description: "High quality product from Lacoste",
     },
-    {
-      _id: 5,
-      name: "Mars Web T-shirt",
-      category: "Shirts",
-      image: "/images/p1.jpg",
-      price: 600,
-      brand: "Mars",
-      rating: 5,
-      numReviews: 120,
-      description: "Next gen t-shirt from Mars web technology",
-    },
   ],
 };
