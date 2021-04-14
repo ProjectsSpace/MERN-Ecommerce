@@ -1,5 +1,6 @@
 import React from "react";
 import Rating from "./Rating";
+import "./Product.css";
 
 function Product({ product }) {
   return (
