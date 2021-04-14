@@ -1,0 +1,13 @@
+/* Rating */
+.rating {
+  display: flex;
+  justify-content: space-between;
+}
+.rating span {
+  color: #f0c040;
+  margin: 0.1rem;
+}
+
+.rating .reviews {
+  color: black;
+}
