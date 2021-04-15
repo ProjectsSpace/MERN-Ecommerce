@@ -9,6 +9,7 @@ export const data = {
       brand: "Nike",
       rating: 4.5,
       numReviews: 10,
+      inStock: 19,
       description: "High quality product from Nike",
     },
     {
@@ -19,7 +20,7 @@ export const data = {
       price: 100,
       brand: "Nike",
       rating: 5,
-      numReviews: 10,
+      numReviews: 5,
       description: "High quality product from Nike",
     },
     {
@@ -31,6 +32,7 @@ export const data = {
       brand: "Addidas",
       rating: 4.5,
       numReviews: 12,
+      inStock: 0,
       description: "High quality product from Addidas",
     },
     {
@@ -42,6 +44,7 @@ export const data = {
       brand: "Lacoste",
       rating: 4.5,
       numReviews: 10,
+      inStock: 10,
       description: "High quality product from Lacoste",
     },
   ],
