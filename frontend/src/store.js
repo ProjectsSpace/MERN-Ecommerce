@@ -1,12 +1,16 @@
 import { createStore, compose, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
-import { productListReducer } from "./reducer/productReducer";
+import {
+  productDetailsReducer,
+  productListReducer,
+} from "./reducer/productReducer";
 
 const initialState = {};
 
 // Getting product form reducer
 const reducer = combineReducers({
   productList: productListReducer,
+  productDetails: productDetailsReducer,
 });
 
 // to show redux store in the browser devtools
