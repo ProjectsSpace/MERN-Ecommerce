@@ -1,9 +1,9 @@
 import React from "react";
 
 function MessageBox(props) {
-  console.log(props);
   return (
     <div className={`alert alert-${props.variant || "info"}`}>
+      {/* Printing whatever inside the component tag */}
       {props.children}
     </div>
   );

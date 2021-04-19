@@ -6,6 +6,7 @@ import {
   productListReducer,
 } from "./reducers/productReducer";
 
+// Initialization of the state
 const initialState = {
   cart: {
     // Setting initial cart items value from localStorage
@@ -16,16 +17,17 @@ const initialState = {
   },
 };
 
-// Getting product form reducer
+// Combining reducers
 const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
   cart: cartReducer,
 });
 
-// to show redux store in the browser devtools
+// To show redux store in the browser devtools
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+// Creating store with reducer, initialstate and middleware
 const store = createStore(
   reducer,
   initialState,
