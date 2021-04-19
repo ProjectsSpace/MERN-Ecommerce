@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../actions/cartActions";
 import MessageBox from "../components/MessageBox";
 import { Link } from "react-router-dom";
-
+import { removeFromCart } from "../actions/cartActions";
 function CartScreen(props) {
   const productId = props.match.params.id;
   const qty = props.location.search
@@ -18,7 +18,7 @@ function CartScreen(props) {
   }, [productId, qty, dispatch]);
 
   const removeFromCartHandler = (id) => {
-    // Action to delete product from cart
+    dispatch(removeFromCart(id));
   };
 
   const checkoutHandler = () => {
