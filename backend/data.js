@@ -6,18 +6,17 @@ const data = {
       name: "Mocarram",
       email: "admin@amazona.com",
       password: bcrypt.hashSync("12345", 8),
-      idAdmin: true,
+      isAdmin: true,
     },
     {
       name: "Peter",
       email: "customer@amazona.com",
       password: bcrypt.hashSync("12345", 8),
-      idAdmin: false,
+      isAdmin: false,
     },
   ],
   products: [
     {
-      _id: 1,
       name: "Nike Slim Shirt",
       category: "Shirts",
       image: "/images/p1.jpg",
@@ -29,7 +28,6 @@ const data = {
       description: "High quality product from Nike",
     },
     {
-      _id: 2,
       name: "Nike polo Shirt",
       category: "T-Shirts",
       image: "/images/p1.jpg",
@@ -41,7 +39,6 @@ const data = {
       description: "High quality product from Nike",
     },
     {
-      _id: 3,
       name: "Addidas Shirt",
       category: "Shirts",
       image: "/images/p1.jpg",
@@ -53,7 +50,6 @@ const data = {
       description: "High quality product from Addidas",
     },
     {
-      _id: 4,
       name: "Lacoste Free Pant",
       category: "Pants",
       image: "/images/p1.jpg",

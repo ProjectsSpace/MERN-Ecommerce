@@ -1,34 +1,33 @@
 import express from "express";
 import mongoose from "mongoose";
-import data from "./data.js";
+import dotenv from "dotenv";
 import userRouter from "./routers/userRouter.js";
+import productRouter from "./routers/productRouter.js";
 
+// to use dotenv
+dotenv.config();
+
+// defining express app
 const app = express();
+
+// parsing json data in the body of request
+// all data will be converted into req.body
+// helps to prevent undefined error
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Connecting to mongoDB
 mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/amazona", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
 });
 
-// Single product details api
-app.get("/api/products/:id", (req, res) => {
-  const product = data.products.find(
-    (item) => item._id === parseInt(req.params.id)
-  );
-  if (product) {
-    res.send(product);
-  } else {
-    res.status(404).send({ message: "Product not found" });
-  }
-});
-
-// Product list api
-app.get("/api/products", (req, res) => {
-  res.send(data.products);
-});
-
 // Using userRouter on specified path
 app.use("/api/users", userRouter);
+
+// Using productRouter on specified path
+app.use("/api/products", productRouter);
 
 app.get("/", (req, res) => {
   res.send("Server is ready");
