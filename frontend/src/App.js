@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import SigninScreen from "./screens/SigninScreen";
 import Footer from "./components/Footer";
 import RegisterScreen from "./screens/RegisterScreen";
+import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 
 function App() {
   return (
@@ -17,11 +18,12 @@ function App() {
 
         {/* Routes for the frontend */}
         <main>
-          <Route path="/cart/:id?" component={CartScreen} exact></Route>
-          <Route path="/product/:id" component={ProductScreen} exact></Route>
-          <Route path="/signin" component={SigninScreen} exact></Route>
-          <Route path="/register" component={RegisterScreen} exact></Route>
-          <Route path="/" component={HomeScreen} exact></Route>
+          <Route path="/shipping" component={ShippingAddressScreen} exact />
+          <Route path="/cart/:id?" component={CartScreen} exact />
+          <Route path="/product/:id" component={ProductScreen} exact />
+          <Route path="/signin" component={SigninScreen} exact />
+          <Route path="/register" component={RegisterScreen} exact />
+          <Route path="/" component={HomeScreen} exact />
         </main>
 
         {/* Footer component */}
