@@ -5,9 +5,15 @@ import {
   productDetailsReducer,
   productListReducer,
 } from "./reducers/productReducer";
+import { userSigninReducer } from "./reducers/userReducer";
 
 // Initialization of the state
 const initialState = {
+  userSignin: {
+    userInfo: localStorage.getItem("userInfo")
+      ? JSON.parse(localStorage.getItem("userInfo"))
+      : null,
+  },
   cart: {
     // Setting initial cart items value from localStorage
     // Prevents data from vanishing on refresh
@@ -22,6 +28,7 @@ const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
   cart: cartReducer,
+  userSignin: userSigninReducer,
 });
 
 // To show redux store in the browser devtools
