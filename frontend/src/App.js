@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import RegisterScreen from "./screens/RegisterScreen";
 import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import PaymentMethodScreen from "./screens/PaymentMethodScreen";
+import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <main>
           <Route path="/cart/:id?" component={CartScreen} exact />
           <Route path="/product/:id" component={ProductScreen} exact />
+          <Route path="/placeorder" component={PlaceOrderScreen} exact />
           <Route path="/payment" component={PaymentMethodScreen} exact />
           <Route path="/shipping" component={ShippingAddressScreen} exact />
           <Route path="/signin" component={SigninScreen} exact />
