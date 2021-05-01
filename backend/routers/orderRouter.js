@@ -1,6 +1,7 @@
 import express from "express";
 import expressAsyncHandler from "express-async-handler";
 import { isAuth } from "../utils/utils.js";
+import Order from "../models/orderModel.js";
 
 const orderRouter = express.Router();
 
@@ -14,7 +15,7 @@ orderRouter.post(
       const order = new Order({
         orderItems: req.body.orderItems,
         shippingAddress: req.body.shippingAddress,
-        paymentMethod: req.body.shippingAddress,
+        paymentMethod: req.body.paymentMethod,
         itemsPrice: req.body.itemsPrice,
         shippingPrice: req.body.shippingPrice,
         taxPrice: req.body.taxPrice,

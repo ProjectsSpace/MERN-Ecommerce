@@ -1,7 +1,12 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import CheckoutSteps from "../components/CheckoutSteps";
 import { Link } from "react-router-dom";
+import { createOrder } from "../actions/orderActions";
+import { ORDER_CREATE_RESET } from "../constants/orderConstants";
+
+import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
 
 export default function PlaceOrderScreen(props) {
   // Getting cart values from store
@@ -19,17 +24,33 @@ export default function PlaceOrderScreen(props) {
   cart.itemsPrice = fixedDigit(
     cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0)
   );
-  //   Caculating shipping price
+  // Caculating shipping price
   cart.shippingPrice = cart.itemsPrice > 100 ? fixedDigit(0) : fixedDigit(10);
   // calculating tax
   cart.taxPrice = fixedDigit(0.15 * cart.itemsPrice);
   // Calculating total price
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
 
+  // Getting order details from the store
+  const orderCreate = useSelector((state) => state.orderCreate);
+  const { loading, success, error, order } = orderCreate;
+
+  // dispatch
+  const dispatch = useDispatch();
+
   //   Handling order placement
   const placeOrderHandler = () => {
-    //   Handles order placement
+    dispatch(createOrder({ ...cart, orderItems: cart.cartItems }));
   };
+
+  // Redirecting to order page
+  useEffect(() => {
+    if (success) {
+      props.history.push(`/order/${order._id}`);
+      dispatch({ type: ORDER_CREATE_RESET });
+    }
+  }, [dispatch, success, order, props.history]);
+
   return (
     <div>
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
@@ -131,6 +152,8 @@ export default function PlaceOrderScreen(props) {
                 >
                   Place Order
                 </button>
+                {loading && <LoadingBox></LoadingBox>}
+                {error && <MessageBox variant="danger">{error}</MessageBox>}
               </li>
             </ul>
           </div>

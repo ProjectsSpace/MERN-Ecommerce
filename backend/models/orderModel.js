@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 
 const orderSchema = new mongoose.Schema(
   {
-    // Using array since there could be many items
     orderItems: [
       {
         name: { type: String, required: true },
@@ -10,21 +9,19 @@ const orderSchema = new mongoose.Schema(
         image: { type: String, required: true },
         price: { type: Number, required: true },
         product: {
-          type: mongoose.Schema.Types.objectId,
+          type: mongoose.Schema.Types.ObjectId,
           ref: "Product",
           required: true,
         },
       },
     ],
-    // Shipping address for the order
     shippingAddress: {
       fullName: { type: String, required: true },
       address: { type: String, required: true },
-      fullName: { type: String, required: true },
-      postalCode: { type: Number, required: true },
+      city: { type: String, required: true },
+      postalCode: { type: String, required: true },
       country: { type: String, required: true },
     },
-
     paymentMethod: { type: String, required: true },
     itemsPrice: { type: Number, required: true },
     shippingPrice: { type: Number, required: true },
@@ -34,14 +31,11 @@ const orderSchema = new mongoose.Schema(
     isPaid: { type: Boolean, default: false },
     paidAt: { type: Date },
     isDelivered: { type: Boolean, default: false },
-    deliveredAt: { tyep: Date },
+    deliveredAt: { type: Date },
   },
   {
     timestamps: true,
   }
 );
-
-// Finalizing the model
 const Order = mongoose.model("Order", orderSchema);
-
 export default Order;
