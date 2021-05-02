@@ -23,7 +23,7 @@ function Header() {
     <header className="row">
       <div>
         <Link className="brand" to="/">
-          Amazona
+          MERN-commerce
         </Link>
       </div>
       <div>

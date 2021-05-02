@@ -15,11 +15,13 @@ function ShippingAddressScreen(props) {
   // Redirecting users to sign in page if not logged in
   if (!userInfo) props.history.push("/signin");
 
-  const [fullName, setFullName] = useState(shippingAddress.fullName);
-  const [address, setAddress] = useState(shippingAddress.address);
-  const [city, setCity] = useState(shippingAddress.city);
-  const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
-  const [country, setCountry] = useState(shippingAddress.country);
+  const [fullName, setFullName] = useState(shippingAddress.fullName || "");
+  const [address, setAddress] = useState(shippingAddress.address || "");
+  const [city, setCity] = useState(shippingAddress.city || "");
+  const [postalCode, setPostalCode] = useState(
+    shippingAddress.postalCode || ""
+  );
+  const [country, setCountry] = useState(shippingAddress.country || "");
 
   // Defining useDispatch hook
   const dispatch = useDispatch();
