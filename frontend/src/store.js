@@ -6,6 +6,7 @@ import {
   orderDetailsReducer,
   orderMineListReducer,
   orderPayReducer,
+  userUpdateProfileReducer,
 } from "./reducers/orderReducer";
 import {
   productDetailsReducer,
@@ -49,6 +50,7 @@ const reducer = combineReducers({
   orderPay: orderPayReducer,
   orderMineList: orderMineListReducer,
   userDetails: userDetailsReducer,
+  userUpdateProfile: userUpdateProfileReducer,
 });
 
 // To show redux store in the browser devtools
