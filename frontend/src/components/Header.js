@@ -39,6 +39,9 @@ function Header() {
               {userInfo.name} <i className="fa fa-caret-down"></i>{" "}
             </Link>
             <ul className="dropdown-content">
+              <li>
+                <Link to="/orderhistory">Order History</Link>
+              </li>
               <Link to="#signout" onClick={signoutHandler}>
                 Sign Out
               </Link>

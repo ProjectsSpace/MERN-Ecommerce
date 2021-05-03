@@ -5,6 +5,16 @@ import Order from "../models/orderModel.js";
 
 const orderRouter = express.Router();
 
+// Order list api
+orderRouter.get(
+  "/mine",
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const orders = await Order.find({ user: req.user._id });
+    res.send(orders);
+  })
+);
+
 // Order creation
 orderRouter.post(
   "/",
