@@ -42,9 +42,14 @@ function Header() {
               <li>
                 <Link to="/orderhistory">Order History</Link>
               </li>
-              <Link to="#signout" onClick={signoutHandler}>
-                Sign Out
-              </Link>
+              <li>
+                <Link to="/profile">Profile</Link>
+              </li>
+              <li>
+                <Link to="#signout" onClick={signoutHandler}>
+                  Sign Out
+                </Link>
+              </li>
             </ul>
           </div>
         ) : (

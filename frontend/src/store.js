@@ -11,7 +11,11 @@ import {
   productDetailsReducer,
   productListReducer,
 } from "./reducers/productReducer";
-import { userRegisterReducer, userSigninReducer } from "./reducers/userReducer";
+import {
+  userDetailsReducer,
+  userRegisterReducer,
+  userSigninReducer,
+} from "./reducers/userReducer";
 
 // Initialization of the state
 const initialState = {
@@ -44,6 +48,7 @@ const reducer = combineReducers({
   orderDetails: orderDetailsReducer,
   orderPay: orderPayReducer,
   orderMineList: orderMineListReducer,
+  userDetails: userDetailsReducer,
 });
 
 // To show redux store in the browser devtools
